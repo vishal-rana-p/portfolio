@@ -68,3 +68,35 @@ button {
   grid-column: 1 / -1; /* full row */
   justify-self: start; /* optional: use center or end if preferred */
 }
+.projects{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 2em;
+}
+
+.projects article{
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+
+}
+.projects article h2{
+  margin:0;
+  gap: 0.5em;
+  background-color: #e6e6e6; /* yellow, for example */
+  padding: 0.25em 0.5em;     /* adds some space inside the background */
+  border-radius: 0.25em;     /* optional: rounded corners */
+  display: inline-block;
+}
+h1 {
+  font-size: 4rem;       /* ~400% of normal text size */
+  line-height: 1.1;      /* tighter spacing for headings */
+  text-wrap: balance;    /* balances lines for a nicer look in browsers that support it */
+  margin-bottom: 1em;    /* spacing below the heading */
+}
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;      /* slightly tighter than body text */
+  text-wrap: balance;    /* balances lines for better readability */
+  margin-top: 0;          /* remove default top margin */
+  margin-bottom: 0.5em;  /* small space below headings */
+}
