@@ -4,36 +4,32 @@ html {
 }
 
 body {
-    /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
-       */
     font: 100%/1.5 system-ui;
-    /* Step 1: Prevent content from getting too wide */
-  max-width: 90ch; /* Try adjusting between 80ch–100ch for best fit */
-  margin-inline: auto; /* Centers horizontally */
+  max-width: 90ch;
+  margin-inline: auto; 
 
-  /* Step 2: Add padding so text doesn't hit edges on small screens */
-  padding-inline: 1rem; /* Adds horizontal padding */
+
+  padding-inline: 1rem;
   }
 
   nav {
-    display: flex;             /* enable Flexbox layout */
-    justify-content: space-around; /* spread links evenly */
-    align-items: center;       /* vertically center items */
-    padding: 0.1em;             /* some breathing room */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.1em;
     margin-bottom: 1rem;
     border-bottom: 1px solid oklch(80% 3% 200);
   }
   nav a {
-    flex: 1;                  /* each link takes equal width */
-    color: inherit;              /* text color */
-    text-align: center;       /* center the text inside */
-    text-decoration: none;    /* remove underlines */
+    flex: 1;
+    color: inherit;
+    text-align: center;
+    text-decoration: none;
     font-weight: 500;
     padding: 0.5em;
   }
   nav a.current {
-    border-bottom: 0.4em solid oklch(80% 3% 200); /* thick underline */
+    border-bottom: 0.4em solid oklch(80% 3% 200);
     margin-bottom: -1px;
   }
   nav a:hover {
@@ -44,7 +40,7 @@ body {
   form input,
   form textarea,
   form button {
-    font: inherit;   /* ← inherits font-family, size, weight, etc. */
+    font: inherit;
   }
   form {
     display: grid;
@@ -54,19 +50,19 @@ body {
   input,
 textarea, button {
   width: 100%;
-  box-sizing: border-box; /* include padding + border in total width */
+  box-sizing: border-box;
   margin-bottom: 1em;
 }
   label {
     display: grid;
     grid-template-columns: subgrid;
-    grid-column: 1 / -1; /* span across both columns */
+    grid-column: 1 / -1;
     column-gap: 0.5em;
   }
   
 button {
-  grid-column: 1 / -1; /* full row */
-  justify-self: start; /* optional: use center or end if preferred */
+  grid-column: 1 / -1;
+  justify-self: start;
 }
 .projects{
   display: grid;
@@ -83,20 +79,129 @@ button {
 .projects article h2{
   margin:0;
   gap: 0.5em;
-  background-color: #e6e6e6; /* yellow, for example */
-  padding: 0.25em 0.5em;     /* adds some space inside the background */
-  border-radius: 0.25em;     /* optional: rounded corners */
-  display: inline-block;
 }
 h1 {
-  font-size: 4rem;       /* ~400% of normal text size */
-  line-height: 1.1;      /* tighter spacing for headings */
-  text-wrap: balance;    /* balances lines for a nicer look in browsers that support it */
-  margin-bottom: 1em;    /* spacing below the heading */
+  font-size: 4rem;
+  line-height: 1.1;
+  text-wrap: balance;
+  margin-bottom: 1em;
 }
 h1, h2, h3, h4, h5, h6 {
-  line-height: 1.1;      /* slightly tighter than body text */
-  text-wrap: balance;    /* balances lines for better readability */
-  margin-top: 0;          /* remove default top margin */
-  margin-bottom: 0.5em;  /* small space below headings */
+  line-height: 1.1;
+  text-wrap: balance;
+  margin-top: 0;
+  margin-bottom: 0.5em;
 }
+body {
+  font-family: 'Times New Roman', Times, serif;
+  line-height: 1.5;
+  color: #222;
+  background-color: #fdfdfd;
+  padding: 1em;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin-bottom: 2em;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+}
+
+nav a.current {
+  color: white;
+  background-color: #0077cc;
+  border-radius: 0.25em;
+}
+
+
+center {
+  display: block;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+  margin-bottom: 0.25em;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 1em 0 0.5em 0;
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+
+section {
+  margin-bottom: 2em;
+}
+
+section article > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5em;
+  flex-wrap: wrap;
+}
+
+section article p,
+section article ul {
+  margin-bottom: 0.5em;
+}
+
+
+ul {
+  margin-left: 1.25em;
+  list-style-type: disc;
+}
+
+li {
+  margin-bottom: 0.25em;
+}
+
+
+section article {
+  padding: 1em;
+  margin-bottom: 1em;
+  background-color: #f8f8f8;
+  border-radius: 0.5em;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+
+center a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+center a:hover {
+  text-decoration: underline;
+}
+
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
