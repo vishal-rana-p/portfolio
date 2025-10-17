@@ -1,5 +1,5 @@
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
-  ? "./"                  // Local server
+  ? "../"                  // Local server
   : "/portfolio/";         // GitHub Pages repo name
 
 
@@ -19,8 +19,11 @@ for (let p of pages) {
     url = !url.startsWith('http') ? BASE_PATH + url : url;
     let title = p.title;
 
-    // Prefix with base path for local/internal links
-    url = !url.startsWith("http") ? BASE_PATH + url : url;
+    // Only prefix BASE_PATH if it's a relative path (does not start with "/")
+    if (!url.startsWith("http") && !url.startsWith("/")) {
+    url = BASE_PATH + url;
+    }
+
 
     // Create link and add it to nav
     let a = document.createElement('a');
