@@ -1,23 +1,41 @@
-console.log("IT’S ALIVE!");
+const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+  ? "../"                  // Local server
+  : "/portfolio/";         // GitHub Pages repo name
 
-function $$(selector, context = document) {
-  return Array.from(context.querySelectorAll(selector));
-}
 
-let navLinks = $$("nav a");
-console.log("Found nav links:", navLinks.map(a => a.href));
+let pages = [
+    { url: 'index.html', title: 'Home' },
+    { url: 'projects/', title: 'Projects' },
+    { url: 'resume/', title: 'Resume'},
+    { url: 'contact/', title: 'Contact'},
+    { url: 'https://github.com/vishal-rana-p', title: 'GitHub'}
+    // add the rest of your pages here
+  ];
+let nav = document.createElement('nav');
+document.body.prepend(nav);
 
-let currentPath = location.pathname.replace(/\/+$/, ""); // remove trailing slash
-console.log("Current path:", currentPath);
+for (let p of pages) {
+    let url = p.url;
+    url = !url.startsWith('http') ? BASE_PATH + url : url;
+    let title = p.title;
 
-let currentLink = navLinks.find(a => {
-  let linkPath = a.pathname.replace(/\/+$/, ""); // remove trailing slash
-  console.log(`Comparing link "${linkPath}" to page "${currentPath}"`);
-  
-  // ✅ Match either exact path or when the link path is a prefix of the current page
-  return currentPath === linkPath || currentPath.startsWith(linkPath + "/");
-});
 
-console.log("Matched link:", currentLink ? currentLink.href : "none");
+    // Prefix with base path for local/internal links
+    url = !url.startsWith("http") ? BASE_PATH + url : url;
 
-currentLink?.classList.add("current");
+    // Create link and add it to nav
+    let a = document.createElement('a');
+    a.href = url;
+    a.textContent = title;
+    // Open truly external links (absolute URLs with a different host) in a new tab
+    if (a.host === location.host && a.pathname === location.pathname) {
+        a.classList.add('current');
+      }
+    if (a.host !== location.host){
+        a.target = "_blank";
+    }
+
+    nav.append(a);
+  }
+
+
