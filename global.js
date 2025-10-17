@@ -16,14 +16,12 @@ document.body.prepend(nav);
 
 for (let p of pages) {
     let url = p.url;
-    url = !url.startsWith('http') ? BASE_PATH + url : url;
     let title = p.title;
 
     // Only prefix BASE_PATH if it's a relative path (does not start with "/")
     if (!url.startsWith("http") && !url.startsWith("/")) {
     url = BASE_PATH + url;
     }
-
 
     // Create link and add it to nav
     let a = document.createElement('a');
