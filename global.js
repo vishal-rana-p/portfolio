@@ -19,7 +19,6 @@ for (let p of pages) {
     url = !url.startsWith('http') ? BASE_PATH + url : url;
     let title = p.title;
 
-
     // Prefix with base path for local/internal links
     url = !url.startsWith("http") ? BASE_PATH + url : url;
 
