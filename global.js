@@ -39,3 +39,47 @@ for (let p of pages) {
   }
 
 
+  document.body.insertAdjacentHTML(
+    "afterbegin",
+    `
+    <label class="color-scheme">
+      Theme:
+      <select>
+        <option value="light dark">Automatic</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </label>
+  `
+  );
+  const select = document.querySelector(".color-scheme select");
+  select.addEventListener("input", function(event) {
+    console.log("color scheme changed to", event.target.value);
+  
+    // Set the color-scheme on the root <html> element
+    document.documentElement.style.setProperty("color-scheme", event.target.value);
+  });
+  
+  function setColorScheme(colorScheme) {
+    document.documentElement.style.setProperty("color-scheme", colorScheme);
+    select.value = colorScheme;  // keep the dropdown in sync
+  }
+
+
+// If a preference is saved, apply it
+if ("colorScheme" in localStorage) {
+  setColorScheme(localStorage.colorScheme);
+} else {
+  setColorScheme("light dark"); // default to Automatic
+}
+select.addEventListener("input", function(event) {
+    const value = event.target.value;
+    console.log("color scheme changed to", value);
+  
+    // Apply the color scheme
+    setColorScheme(value);
+  
+    // Save preference to localStorage
+    localStorage.colorScheme = value;
+  });
+  

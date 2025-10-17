@@ -251,3 +251,16 @@ nav a:hover {
 }
 
 
+/* Step 4.3: Place the color-scheme switcher at top-right */
+.color-scheme {
+  position: absolute;       /* Remove from normal flow */
+  top: 1rem;                /* 1rem from top */
+  right: 1rem;              /* 1rem from right */
+  font-size: 0.8rem;        /* smaller text to make it less prominent */
+  font-family: inherit;     /* inherit font from parent */
+}
+
+/* Make the select control match input/textarea/button font */
+.color-scheme select {
+  font: inherit;
+}
