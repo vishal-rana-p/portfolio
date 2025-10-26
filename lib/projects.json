@@ -1,0 +1,75 @@
+[
+    {
+      "title": "Investigation on the relationship between protein and food ratings",
+      "year": "2024",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Cleaned, Analyzed, and used data for creating a multi-class classifier model using a Random Forest Regressor"
+    },
+    {
+      "title": "Language Models & N-Gram Text Generation",
+      "year": "2024",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Developed an LLM, enabling text generation through sequential word dependencies further developing a markov chain based sentence constructor"
+    },
+    {
+      "title": "Test Automation for Agentic AI",
+      "year": "2025",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Used robot framework to automate the manual testing of a company's agentic AI bots"
+    },
+    {
+      "title": "Loan Analysis",
+      "year": "2024",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Analyzed a large dataset to uncover trends in loan approvals, utilizing data wrangling, time series analysis, and statistical modeling."
+    },
+    {
+      "title": "Bus Network Navigation",
+      "year": "2025",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Simulated passenger wait times using real bus arrival data analysing descrepancies with theoretical models like the waiting time paradox"
+    },
+    {
+      "title": "Visualisation of Price vs. Processing level of High Protein foods",
+      "year": "2025",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Analyzed a dataset of food products sold by three stores Target, Walmart and WHoleFoods to estimate the quality of high protein foods compared to change in price"
+    },
+    {
+      "title": "Visualisation: Do developed countries outsource their emissions?",
+      "year": "2025",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Analyzed a large dataset of CO2 emissions based on import and export in order to identify if the null hypothesis could be proven through visualization"
+    },
+    {
+        "title": "Image Identification -KNN?",
+        "year": "2024",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Used a KNN algorithm to create an environment that can guess what you are drawing on the screen"
+      },
+      {
+        "title": "IoT Project: Domestic Health.",
+        "year": "2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Made a domestic health system from scratch, analyzed the data and conducted hyptohesis tests to make conclusions on the data"
+      },
+    {
+      "title": "Quas, eaque alias. Error?",
+      "year": "2022",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Tempora incidunt maxime magnam ex aspernatur sint facilis ut sunt sed sint tempora laudantium!"
+    },
+    {
+      "title": "Ab doloribus voluptatibus eligendi.",
+      "year": "2022",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Hic veniam nisi suscipit dicta dolore perspiciatis totam quidem beatae voluptatem eum, dolore illo a!"
+    },
+    {
+      "title": "Lorem ipso ipum",
+      "year": "2022",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Est sit omnis nam impedit enim iste esse odio dicta quaerat voluptates, incidunt velit? Maxime, a."
+    }
+  ]
+  
