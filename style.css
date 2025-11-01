@@ -280,3 +280,125 @@ nav a:hover {
   text-align: center;
   margin: 0;
 }
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.project-info {
+  margin-top: 0.5em; /* spacing between image and description/year */
+  position: relative;
+}
+
+.project-description {
+  margin-bottom: 0.5em; /* pushes the year lower */
+}
+
+.project-year {
+  color: #666;
+  font-style: italic;
+  font-size: 0.9em;
+  margin-top: 0.2em;
+  display: block;
+}
+
+/* Legend container box */
+/* Shared container for pie chart and legend */
+/* Container for chart and legend */
+.container {
+  display: flex;
+  align-items: center;       
+  justify-content: center;   
+  gap: 2em;            
+  flex-wrap: nowrap;
+  margin: 2em auto;
+  max-width: 900px;
+}
+
+/* SVG chart styling */
+#projects-plot {
+  max-width: 250px;
+  flex-shrink: 0;            /* keeps the chart from shrinking */
+}
+
+/* Legend box */
+.legend {
+  display: flex;
+  flex-wrap: wrap;           /* ✅ allows wrapping inside the legend box */
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  background-color: #f9f9f9;
+  border: 1.5px solid #ddd;
+  border-radius: 0.6em;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  list-style: none;
+  width: 300px;              /* ✅ fixed overall width beside chart */
+  height: auto;
+  margin: 0;
+}
+
+/* Legend items */
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: sans-serif;
+  font-size: 0.9em;
+  flex: 1 1 calc(33.333% - 1em); /* default: 3 columns per row */
+  min-width: 80px;                /* controls wrapping behavior */
+  justify-content: flex-start;
+}
+
+/* The colored squares */
+.legend-item .swatch {
+  width: 1em;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color);
+  border-radius: 0.3em;
+  display: inline-block;
+}
+
+/* Optional smaller numbers */
+.legend-item em {
+  font-style: normal;
+  color: #666;
+  font-size: 0.8em;
+}
+
+
+.searchBar {
+  margin-top: 1rem;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 0.5em;
+  border: 1px solid #ccc;
+}
+
+/* Fade out non-hovered wedges */
+svg:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+}
+
+/* Smooth transition for wedges */
+path {
+  transition: 300ms;
+  cursor: pointer;   /* ensure pointer shows on hover */
+  pointer-events: all;  /* ensure clickable */
+}
+
+/* Selected wedge style */
+path.selected {
+  fill: oklch(60% 45% 0) !important;
+}
+
+/* Legend highlight */
+.legend-item.selected {
+  background-color: rgba(255, 215, 0, 0.1);
+  border-radius: 6px;
+  font-weight: bold;
+}

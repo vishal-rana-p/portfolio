@@ -110,6 +110,7 @@ select.addEventListener("input", function(event) {
         <${headingLevel}>${project.title}</${headingLevel}>
         <img src="${project.image}" alt="${project.title}">
         <p>${project.description}</p>
+        <p class="project-year">${project.year}</p>
       `;
       containerElement.appendChild(article);
     });
