@@ -6,6 +6,12 @@
       "description": "Cleaned, Analyzed, and used data for creating a multi-class classifier model using a Random Forest Regressor"
     },
     {
+      "title": "Bike Network Mapping",
+      "year": "2022",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Mapped the bike routes in Boston and Cambridge using d3 and mapbox to create an interactive visualization of traffic in the area"
+    },
+    {
       "title": "Language Models & N-Gram Text Generation",
       "year": "2024",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
@@ -64,12 +70,6 @@
       "year": "2022",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
       "description": "Hic veniam nisi suscipit dicta dolore perspiciatis totam quidem beatae voluptatem eum, dolore illo a!"
-    },
-    {
-      "title": "Lorem ipso ipum",
-      "year": "2022",
-      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Est sit omnis nam impedit enim iste esse odio dicta quaerat voluptates, incidunt velit? Maxime, a."
     }
   ]
   
