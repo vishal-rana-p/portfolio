@@ -318,6 +318,9 @@ gridlines.call(d3.axisLeft(yScale).tickFormat('').tickSize(-usableArea.width));
   const slider = document.getElementById("commit-progress");
   const sliderTimeEl = document.getElementById("commit-time-progress");
   let filteredCommits = commits;
+
+
+  
   
   function onTimeSliderChange(event) {
     commitProgress = Number(event.target.value);
@@ -329,8 +332,49 @@ gridlines.call(d3.axisLeft(yScale).tickFormat('').tickSize(-usableArea.width));
     });
     // Filter commits based on slider
     filteredCommits = commits.filter(d => d.datetime <= commitMaxTime);
+
     // Update scatter plot with filtered commits
     updateScatterPlot(data, filteredCommits);
+    // after initializing filteredCommits
+
+    let lines = filteredCommits.flatMap((d) => d.lines);
+    let files = d3
+    .groups(lines, (d) => d.file)
+    .map(([name, lines]) => {
+      return { name, lines };
+    })
+    .sort((a, b) => b.lines.length - a.lines.length);
+
+    let colors = d3.scaleOrdinal(d3.schemeTableau10);
+
+    // Update files list based on filtered commits
+    let filesContainer = d3
+    .select('#files')
+    .selectAll('div')
+    .data(files, (d) => d.name)
+    .join(
+      // This code only runs when the div is initially rendered
+      (enter) =>
+      enter.append('div').call((div) => {
+        div.append('dt').append('code');
+        div.append('dd');
+      })
+    );
+
+    // This code updates the div info
+    filesContainer.select('dt > code').text((d) => d.name);
+
+    filesContainer
+          .select('dt > code')
+          .text(d => d.name);
+          filesContainer
+        .select('dd')
+        .selectAll('div')
+        .data(d => d.lines)   // one circle per line!
+        .join('div')
+        .attr('class', 'loc')
+        .attr('style', (d) => `--color: ${colors(d.type)}`);
+      ;
   }
   
   // Attach listener
@@ -390,4 +434,5 @@ gridlines.call(d3.axisLeft(yScale).tickFormat('').tickSize(-usableArea.width));
       });
 
   }
+
 
