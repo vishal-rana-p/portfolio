@@ -39,32 +39,48 @@
       -->
     </dl>
 
-    <div id="stats"></div>
-    <h2>Commits by time of day</h2>
-    <div id="chart"></div>
-    <p id="selection-count">No commits selected</p>
+    <div id="scrolly-1">
 
-    <dl id="commit-tooltip" class="info tooltip" hidden>
-        <dt>Commit</dt>
-        <dd>
-          <a href="" id="commit-link" target="_blank"></a>
-        </dd>
-      
-        <dt>Date</dt>
-        <dd id="commit-date"></dd>
-      
-        <!-- Add: Time, author, lines edited -->
-        <dt>Time</dt>
-        <dd id="commit-time"></dd>
+      <!-- Left column: explanatory text -->
+      <div id="scatter-story">some filler text here</div>
     
-        <dt>Author</dt>
-        <dd id="commit-author"></dd>
+      <div id="scatter-plot">
     
-        <dt>Lines Edited</dt>
-        <dd id="commit-lines"></dd>
-      </dl>
-      <dl id="language-breakdown" class="stats"></dl>
+        <div id="stats"></div>
+    
+        <h2>Commits by time of day</h2>
+    
+        <div id="chart"></div>
+        <p id="selection-count">No commits selected</p>
+    
+        <dl id="commit-tooltip" class="info tooltip" hidden>
+          <dt>Commit</dt>
+          <dd>
+            <a href="" id="commit-link" target="_blank"></a>
+          </dd>
+    
+          <dt>Date</dt>
+          <dd id="commit-date"></dd>
+    
+          <dt>Time</dt>
+          <dd id="commit-time"></dd>
+    
+          <dt>Author</dt>
+          <dd id="commit-author"></dd>
+    
+          <dt>Lines Edited</dt>
+          <dd id="commit-lines"></dd>
+        </dl>
+    
+        <dl id="language-breakdown" class="stats"></dl>
+    
+      </div>
+    </div>
+    
   </main>
+  <dl id = "files"></dl>
+
+
   <script type="module" src="./main.js" defer></script>
 
 </body>

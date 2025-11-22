@@ -1,6 +1,6 @@
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
-
+import scrollama from 'https://cdn.jsdelivr.net/npm/scrollama@3.2.0/+esm';
 
 
 async function loadData() {
@@ -436,3 +436,97 @@ gridlines.call(d3.axisLeft(yScale).tickFormat('').tickSize(-usableArea.width));
   }
 
 
+  d3.select('#scatter-story')
+  .selectAll('.step')
+  .data(commits)
+  .join('div')
+  .attr('class', 'step')
+  .html((d, i) => `
+    On ${d.datetime.toLocaleString('en', {
+      dateStyle: 'full',
+      timeStyle: 'short',
+    })},
+    I <a href="${d.url}" target="_blank">
+      ${i > 0 ? 'made a subsequent commit' : 'made the initial commit'}
+    </a>
+    to this project.
+    This update included ${d.totalLines} line${d.totalLines === 1 ? '' : 's'} 
+    of code across ${
+      d3.rollups(
+        d.lines,
+        (D) => D.length,
+        (d) => d.file
+      ).length
+    } file${d3.rollups(d.lines, (D) => D.length, (d) => d.file).length === 1 ? '' : 's'}.
+    Each revision reflects ongoing refinement to improve functionality, structure, and maintainability.
+  `);
+
+  function onStepEnter(response) {
+    // Each step corresponds to a commit
+    const commit = response.element.__data__;
+  
+    // Update scatter plot to focus ONLY on commits up to this commit.datetime
+    commitMaxTime = commit.datetime;
+    
+    // Filter commits by this time
+    filteredCommits = commits.filter(d => d.datetime <= commitMaxTime);
+  
+    // Update timeline text (optional)
+    const sliderTimeEl = document.getElementById("commit-progress-time");
+    if (sliderTimeEl) {
+      sliderTimeEl.textContent = commitMaxTime.toLocaleString('en', {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+      });
+    }
+  
+    // Update scatter plot
+    updateScatterPlot(data, filteredCommits);
+  
+    // Update file visualization
+    let lines = filteredCommits.flatMap(d => d.lines);
+    let files = d3.groups(lines, d => d.file)
+      .map(([name, lines]) => ({ name, lines }))
+      .sort((a, b) => b.lines.length - a.lines.length);
+  
+      const filesContainer = d3
+      .select('#files')
+      .selectAll('div.file-block')
+      .data(files, d => d.name)
+      .join(
+        enter =>
+          enter.append('div')
+            .attr('class', 'file-block')
+            .call(div => {
+              div.append('dt').append('code');
+              div.append('dd');
+            }),
+        update => update,
+        exit => exit.remove()
+      );
+    
+    // update file name
+    filesContainer
+      .select('dt > code')
+      .text(d => d.name);
+    
+    // update one square per line
+    filesContainer
+      .select('dd')
+      .selectAll('div.loc')
+      .data(d => d.lines)
+      .join(
+        enter => enter.append('div').attr('class', 'loc'),
+        update => update,
+        exit => exit.remove()
+      )
+      .style('background', d => colors(d.type));
+  }
+  
+  const scroller = scrollama();
+  scroller
+    .setup({
+      container: '#scrolly-1',
+      step: '#scrolly-1 .step',
+    })
+    .onStepEnter(onStepEnter);
